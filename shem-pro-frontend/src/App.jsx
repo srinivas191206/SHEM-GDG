@@ -17,7 +17,7 @@ const TermsAndConditions = lazy(() => import('./components/Legal/TermsAndConditi
 const MetaTags = lazy(() => import('./components/MetaTags.jsx'));
 const Documentation = lazy(() => import('./components/Documentation.tsx'));
 const Support = lazy(() => import('./components/Support.tsx'));
-const ProtectedRoute = lazy(() => import('./components/auth/ProtectedRoute.jsx'));
+import ProtectedRoute from './components/auth/ProtectedRoute.jsx';
 
 function App() {
   return (
