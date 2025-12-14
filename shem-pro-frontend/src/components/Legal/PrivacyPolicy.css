@@ -1,0 +1,143 @@
+.privacy-policy-container {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.privacy-policy-header h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.privacy-policy-header p {
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+.privacy-policy-nav {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.privacy-policy-nav h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.privacy-policy-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.privacy-policy-nav li {
+  margin-bottom: 8px;
+}
+
+.privacy-policy-nav a {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.privacy-policy-nav a:hover {
+  text-decoration: underline;
+}
+
+.privacy-policy-section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.privacy-policy-section:last-of-type {
+  border-bottom: none;
+}
+
+.privacy-policy-section h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.privacy-policy-section h3 {
+  color: #34495e;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.privacy-policy-section p {
+  margin-bottom: 10px;
+}
+
+.privacy-policy-section ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.privacy-policy-section li {
+  margin-bottom: 5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .privacy-policy-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .privacy-policy-nav ul {
+    columns: 1;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .privacy-policy-container {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .privacy-policy-header h1,
+  .privacy-policy-nav h2,
+  .privacy-policy-section h2,
+  .privacy-policy-section h3 {
+    color: #f5f5f5;
+  }
+
+  .privacy-policy-header p {
+    color: #bdc3c7;
+  }
+
+  .privacy-policy-nav {
+    background-color: #34495e;
+  }
+
+  .privacy-policy-nav a {
+    color: #85c1e9;
+  }
+
+  .privacy-policy-nav a:hover {
+    text-decoration: underline;
+  }
+
+  .privacy-policy-section {
+    border-bottom-color: #444;
+  }
+}
