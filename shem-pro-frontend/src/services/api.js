@@ -20,6 +20,17 @@ api.interceptors.request.use(
   }
 );
 
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const getLiveSensorData = async () => api.get('/data/live');
 export const getHistoryData = async () => api.get('/data/history');
 export const getSevenDayHistoryData = async () => api.get('/data/history/7day');
