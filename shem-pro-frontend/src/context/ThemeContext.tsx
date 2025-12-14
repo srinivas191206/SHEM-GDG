@@ -85,5 +85,5 @@ export const useThemeColors = () => {
         }
     };
 
-    return colors[theme];
+    return colors[theme] || colors.dark;
 };

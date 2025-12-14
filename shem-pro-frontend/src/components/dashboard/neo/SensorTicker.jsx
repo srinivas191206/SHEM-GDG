@@ -28,9 +28,9 @@ const SensorTicker = ({ data }) => {
         { label: 'Voltage', value: data?.voltage?.toFixed(1) || '240.5', unit: 'V', change: 0.2, icon: BoltIcon, color: 'text-yellow-400' },
         { label: 'Current', value: data?.current?.toFixed(2) || '2.14', unit: 'A', change: -1.5, icon: SignalIcon, color: 'text-blue-400' },
         { label: 'Power', value: data?.power?.toFixed(0) || '514', unit: 'W', change: 1.2, icon: FireIcon, color: 'text-red-400' },
-        { label: 'Energy', value: data?.energy_kWh?.toFixed(3) || '14.28', unit: 'kWh', change: 5.4, icon: SparklesIcon, color: 'text-green-400' },
+        { label: 'Energy', value: (data?.energy_kWh || data?.energy)?.toFixed(3) || '14.28', unit: 'kWh', change: 5.4, icon: SparklesIcon, color: 'text-green-400' },
         { label: 'Cost', value: data?.cost_rs?.toFixed(1) || '108.5', unit: '₹', change: 2.1, icon: CurrencyRupeeIcon, color: 'text-accent' },
-        { label: 'PF', value: data?.pf?.toFixed(2) || '0.98', unit: '', change: 0.0, icon: ScaleIcon, color: 'text-purple-400' },
+        { label: 'PF', value: (data?.pf || data?.powerFactor)?.toFixed(2) || '0.98', unit: '', change: 0.0, icon: ScaleIcon, color: 'text-purple-400' },
         { label: 'Frequency', value: data?.frequency?.toFixed(1) || '50.1', unit: 'Hz', change: 0.1, icon: SignalIcon, color: 'text-gray-400' },
     ];
 
