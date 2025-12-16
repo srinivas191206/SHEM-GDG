@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { BoltIcon, CurrencyRupeeIcon, FireIcon } from '@heroicons/react/24/solid';
 
 const Card = ({ label, value, unit, icon: Icon, color }) => (
@@ -16,26 +17,28 @@ const Card = ({ label, value, unit, icon: Icon, color }) => (
 );
 
 const MetricCards = ({ data }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <Card
-                label="Current Load"
+                label={t('dashboard.currentLoad')}
                 value={data?.power?.toFixed(0) || '0'}
-                unit="W"
+                unit={t('units.watts')}
                 icon={FireIcon}
                 color="text-orange-400"
             />
             <Card
-                label="Daily Usage"
+                label={t('dashboard.dailyUsage')}
                 value={data?.energy_kWh?.toFixed(2) || '0.00'}
-                unit="kWh"
+                unit={t('units.kilowattHours')}
                 icon={BoltIcon}
                 color="text-blue-400"
             />
             <Card
-                label="Estimated Cost"
+                label={t('dashboard.estimatedCost')}
                 value={data?.cost_rs?.toFixed(0) || '0'}
-                unit="₹"
+                unit={t('units.rupees')}
                 icon={CurrencyRupeeIcon}
                 color="text-green-400"
             />
@@ -44,3 +47,4 @@ const MetricCards = ({ data }) => {
 };
 
 export default MetricCards;
+

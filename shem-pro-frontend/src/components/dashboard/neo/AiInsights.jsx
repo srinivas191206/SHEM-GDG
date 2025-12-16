@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SparklesIcon, ArrowPathIcon } from '@heroicons/react/24/solid';
 import { generateAIResponse } from '../../../services/aiLLM';
 
 const AiInsights = ({ data }) => {
-    const [insight, setInsight] = useState("Analyzing your energy patterns...");
+    const { t } = useTranslation();
+    const [insight, setInsight] = useState(t('aiInsight.analyzing'));
     const [loading, setLoading] = useState(false);
 
     const fetchInsight = async () => {
@@ -28,7 +30,7 @@ const AiInsights = ({ data }) => {
             <div className="flex justify-between items-start mb-4 relative z-10">
                 <div className="flex items-center gap-2">
                     <SparklesIcon className="w-5 h-5 text-accent" />
-                    <h3 className="font-bold">AI Insight</h3>
+                    <h3 className="font-bold">{t('aiInsight.title')}</h3>
                 </div>
                 <button
                     onClick={fetchInsight}

@@ -1,0 +1,104 @@
+{
+    "dashboard": {
+        "title": "डैशबोर्ड",
+        "overview": "अवलोकन",
+        "currentLoad": "वर्तमान लोड",
+        "dailyUsage": "दैनिक उपयोग",
+        "monthlyUsage": "मासिक उपयोग",
+        "estimatedCost": "अनुमानित लागत",
+        "peakHours": "पीक घंटे",
+        "offPeakHours": "ऑफ-पीक घंटे",
+        "savingsToday": "आज की बचत",
+        "powerFactor": "पावर फैक्टर",
+        "liveConsumption": "लाइव खपत"
+    },
+    "analytics": {
+        "title": "विश्लेषण",
+        "detailedAnalytics": "विस्तृत विश्लेषण",
+        "voltage": "वोल्टेज",
+        "current": "करंट",
+        "power": "पावर",
+        "frequency": "फ्रीक्वेंसी",
+        "anomalies": "विसंगतियाँ",
+        "detected": "पता लगाया",
+        "resolved": "हल किया",
+        "trends": "प्रवृत्तियाँ",
+        "weeklyExpenditure": "साप्ताहिक खर्च",
+        "viewReport": "रिपोर्ट देखें",
+        "totalThisWeek": "इस सप्ताह कुल"
+    },
+    "control": {
+        "title": "नियंत्रण",
+        "deviceManagement": "डिवाइस प्रबंधन",
+        "devices": "डिवाइस",
+        "status": "स्थिति",
+        "on": "चालू",
+        "off": "बंद",
+        "schedule": "शेड्यूल",
+        "automation": "ऑटोमेशन"
+    },
+    "settings": {
+        "title": "सेटिंग्स",
+        "language": "भाषा",
+        "languagePreferences": "भाषा प्राथमिकताएं",
+        "selectLanguage": "भाषा चुनें",
+        "languageAffects": "चयनित भाषा पूरी वेबसाइट को प्रभावित करती है",
+        "notifications": "सूचनाएं",
+        "profile": "प्रोफाइल",
+        "theme": "थीम",
+        "darkMode": "डार्क मोड",
+        "lightMode": "लाइट मोड"
+    },
+    "chat": {
+        "askShem": "SHEM से पूछें",
+        "placeholder": "अपने ऊर्जा उपयोग के बारे में पूछें...",
+        "thinking": "SHEM सोच रहा है...",
+        "rateLimited": "दर सीमित। एक घंटे में फिर से प्रयास करें।",
+        "failedToConnect": "कनेक्ट करने में विफल। कृपया पुनः प्रयास करें।",
+        "retry": "पुनः प्रयास करें",
+        "settings": "चैट सेटिंग्स",
+        "clearHistory": "इतिहास साफ़ करें",
+        "privacyNote": "आपकी चैट सुरक्षित रूप से संसाधित की जाती है।",
+        "tellMeMore": "और बताएं",
+        "howToDoThis": "यह कैसे करें?",
+        "whatElse": "और क्या?"
+    },
+    "forecast": {
+        "title": "ऊर्जा पूर्वानुमान",
+        "tomorrow": "कल का पूर्वानुमान",
+        "weeklyForecast": "साप्ताहिक पूर्वानुमान",
+        "monthlyProjection": "मासिक अनुमान",
+        "predictedUsage": "अनुमानित उपयोग",
+        "estimatedCost": "अनुमानित लागत",
+        "confidence": "विश्वास"
+    },
+    "appliances": {
+        "title": "उपकरण",
+        "breakdown": "अनुमानित उपकरण विभाजन",
+        "detected": "पता लगाए गए उपकरण",
+        "unidentified": "अज्ञात खपत",
+        "addManually": "मैन्युअल रूप से उपकरण जोड़ें",
+        "waysToSave": "पैसे बचाने के तरीके"
+    },
+    "common": {
+        "loading": "लोड हो रहा है...",
+        "save": "सहेजें",
+        "cancel": "रद्द करें",
+        "close": "बंद करें",
+        "confirm": "पुष्टि करें",
+        "delete": "हटाएं",
+        "edit": "संपादित करें",
+        "refresh": "रीफ्रेश",
+        "viewAll": "सभी देखें",
+        "moreLanguages": "अधिक भाषाएँ..."
+    },
+    "units": {
+        "watts": "W",
+        "kilowatts": "kW",
+        "kilowattHours": "kWh",
+        "volts": "V",
+        "amperes": "A",
+        "rupees": "₹",
+        "percentage": "%"
+    }
+}

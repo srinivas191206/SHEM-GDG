@@ -1,12 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { BoltIcon, ChartBarIcon, CpuChipIcon, Cog6ToothIcon, Squares2X2Icon } from '@heroicons/react/24/solid';
 
 const Sidebar = ({ activeTab = 'dashboard', setActiveTab }) => {
+    const { t } = useTranslation();
+
     const menuItems = [
-        { id: 'dashboard', icon: Squares2X2Icon, label: 'Dashboard' },
-        { id: 'analytics', icon: ChartBarIcon, label: 'Analytics' },
-        { id: 'control', icon: CpuChipIcon, label: 'Device Control' },
-        { id: 'settings', icon: Cog6ToothIcon, label: 'Settings' },
+        { id: 'dashboard', icon: Squares2X2Icon, label: t('dashboard.title') },
+        { id: 'analytics', icon: ChartBarIcon, label: t('analytics.title') },
+        { id: 'control', icon: CpuChipIcon, label: t('control.title') },
+        { id: 'settings', icon: Cog6ToothIcon, label: t('settings.title') },
     ];
 
     return (

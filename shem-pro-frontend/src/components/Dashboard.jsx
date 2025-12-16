@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEnergyDataFetcher } from '../hooks/useEnergyDataFetcher';
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Toaster, toast } from 'react-hot-toast'; // Import toast for dismiss logic if needed
 import { getEsp32LatestData } from '../services/api';
 import { useAuth } from '../context/AuthContext';
@@ -10,7 +11,7 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 import Sidebar from './dashboard/neo/Sidebar';
 import DashboardHeader from './dashboard/neo/DashboardHeader';
 import MetricCards from './dashboard/neo/MetricCards';
-import ShemChat from './dashboard/neo/ShemChat';
+import SHEMChatWidget from './SHEMChatWidget';
 import AiInsights from './dashboard/neo/AiInsights';
 
 // Lazy Load Heavy Widgets
@@ -22,6 +23,9 @@ const NeoDeviceControl = lazy(() => import('./dashboard/neo/NeoDeviceControl'));
 const ProfileSettings = lazy(() => import('./dashboard/neo/ProfileSettings'));
 const PeakHoursCard = lazy(() => import('./dashboard/neo/PeakHoursCard'));
 const CostOptimizer = lazy(() => import('./dashboard/neo/CostOptimizer'));
+const AnomalyAlerts = lazy(() => import('./dashboard/neo/AnomalyAlerts'));
+const ApplianceBreakdown = lazy(() => import('./dashboard/neo/ApplianceBreakdown'));
+const EnergyForecast = lazy(() => import('./dashboard/neo/EnergyForecast'));
 
 // Simple widget loader
 const WidgetLoader = () => (
@@ -31,6 +35,7 @@ const WidgetLoader = () => (
 );
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const { liveData } = useEnergyDataFetcher();
   const { user } = useAuth();
 
@@ -67,7 +72,7 @@ const Dashboard = () => {
           <div className="space-y-6 fade-in">
             {/* Simple Metrics */}
             <section>
-              <h2 className="text-xl font-bold text-white mb-4">Overview</h2>
+              <h2 className="text-xl font-bold text-dashboard-text mb-4">Overview</h2>
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
                 <div className="lg:col-span-3">
                   <MetricCards data={esp32Data || liveData} />
@@ -93,19 +98,42 @@ const Dashboard = () => {
               <PeakHoursCard data={esp32Data || liveData} userId={user?.id || 'user123'} />
               <CostOptimizer userId={user?.id || 'user123'} onNavigateToControl={() => setActiveTab('control')} />
             </section>
+
+            {/* Energy Forecast */}
+            <section>
+              <EnergyForecast userId={user?.id || 'user123'} />
+            </section>
           </div>
         );
 
       case 'analytics':
         return (
           <div className="space-y-6 fade-in">
-            <h2 className="text-xl font-bold text-white mb-4">Detailed Analytics</h2>
-            {/* Scrolling Ticker for deep data */}
-            <SensorTicker data={esp32Data || liveData} />
+            <h2 className="text-xl font-bold text-dashboard-text mb-4">{t('analytics.detailedAnalytics')}</h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[350px]">
-              <EnergyDistributionWidget />
-              <CostAnalysisWidget />
+            {/* Anomaly Detection Alerts - Collapsible */}
+            <div className="w-full overflow-hidden">
+              <AnomalyAlerts userId={user?.id || 'user123'} />
+            </div>
+
+            {/* Appliance Breakdown - Full width */}
+            <div className="w-full overflow-hidden">
+              <ApplianceBreakdown userId={user?.id || 'user123'} />
+            </div>
+
+            {/* Scrolling Ticker */}
+            <div className="w-full overflow-hidden">
+              <SensorTicker data={esp32Data || liveData} />
+            </div>
+
+            {/* Energy Distribution and Cost Analysis - Responsive Grid */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+              <div className="min-h-[300px] max-h-[400px] overflow-hidden">
+                <EnergyDistributionWidget />
+              </div>
+              <div className="min-h-[300px] max-h-[400px] overflow-hidden">
+                <CostAnalysisWidget />
+              </div>
             </div>
           </div>
         );
@@ -113,11 +141,11 @@ const Dashboard = () => {
       case 'control':
         return (
           <div className="max-w-4xl mx-auto mt-10 fade-in">
-            <h2 className="text-xl font-bold text-white mb-6">Device Management</h2>
+            <h2 className="text-xl font-bold text-dashboard-text mb-6">{t('control.deviceManagement')}</h2>
             <NeoDeviceControl />
             {/* Add more controls/scheduling here later */}
             <div className="mt-8 p-6 bg-dashboard-card rounded-xl border border-white/5 text-center text-dashboard-textSecondary">
-              <p>Advanced scheduling coming soon...</p>
+              <p>{t('control.automation')} - {t('common.loading')}</p>
             </div>
           </div>
         );
@@ -176,14 +204,14 @@ const Dashboard = () => {
           onProfileClick={() => setActiveTab('settings')}
         />
 
-        <main className="flex-1 p-8 overflow-y-auto w-full max-w-[1600px] mx-auto">
+        <main className="flex-1 p-4 md:p-8 overflow-y-auto overflow-x-hidden w-full max-w-[1600px] mx-auto">
           <Suspense fallback={<WidgetLoader />}>
             {renderContent()}
           </Suspense>
         </main>
 
         {/* Floating Chat */}
-        <ShemChat contextData={esp32Data || liveData} />
+        <SHEMChatWidget userId={user?.id || 'user123'} contextData={esp32Data || liveData} pageContext={activeTab} />
       </div>
     </div>
   );

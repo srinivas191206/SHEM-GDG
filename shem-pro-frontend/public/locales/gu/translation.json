@@ -1,0 +1,104 @@
+{
+    "dashboard": {
+        "title": "ડેશબોર્ડ",
+        "overview": "ઝાંખી",
+        "currentLoad": "વર્તમાન લોડ",
+        "dailyUsage": "દૈનિક વપરાશ",
+        "monthlyUsage": "માસિક વપરાશ",
+        "estimatedCost": "અંદાજિત ખર્ચ",
+        "peakHours": "પીક કલાકો",
+        "offPeakHours": "ઓફ-પીક કલાકો",
+        "savingsToday": "આજની બચત",
+        "powerFactor": "પાવર ફેક્ટર",
+        "liveConsumption": "લાઇવ વપરાશ"
+    },
+    "analytics": {
+        "title": "વિશ્લેષણ",
+        "detailedAnalytics": "વિગતવાર વિશ્લેષણ",
+        "voltage": "વોલ્ટેજ",
+        "current": "કરંટ",
+        "power": "પાવર",
+        "frequency": "ફ્રીક્વન્સી",
+        "anomalies": "અસામાન્યતાઓ",
+        "detected": "શોધાયું",
+        "resolved": "ઉકેલાયું",
+        "trends": "વલણો",
+        "weeklyExpenditure": "સાપ્તાહિક ખર્ચ",
+        "viewReport": "રિપોર્ટ જુઓ",
+        "totalThisWeek": "આ અઠવાડિયે કુલ"
+    },
+    "control": {
+        "title": "નિયંત્રણ",
+        "deviceManagement": "ઉપકરણ વ્યવસ્થાપન",
+        "devices": "ઉપકરણો",
+        "status": "સ્થિતિ",
+        "on": "ચાલુ",
+        "off": "બંધ",
+        "schedule": "શેડ્યૂલ",
+        "automation": "ઓટોમેશન"
+    },
+    "settings": {
+        "title": "સેટિંગ્સ",
+        "language": "ભાષા",
+        "languagePreferences": "ભાષા પસંદગીઓ",
+        "selectLanguage": "ભાષા પસંદ કરો",
+        "languageAffects": "પસંદ કરેલ ભાષા આખી વેબસાઇટને અસર કરે છે",
+        "notifications": "સૂચનાઓ",
+        "profile": "પ્રોફાઇલ",
+        "theme": "થીમ",
+        "darkMode": "ડાર્ક મોડ",
+        "lightMode": "લાઇટ મોડ"
+    },
+    "chat": {
+        "askShem": "SHEM ને પૂછો",
+        "placeholder": "તમારા ઊર્જા વપરાશ વિશે પૂછો...",
+        "thinking": "SHEM વિચારી રહ્યું છે...",
+        "rateLimited": "દર મર્યાદિત. એક કલાકમાં ફરી પ્રયાસ કરો.",
+        "failedToConnect": "કનેક્ટ કરવામાં નિષ્ફળ. કૃપા કરીને ફરી પ્રયાસ કરો.",
+        "retry": "ફરી પ્રયાસ કરો",
+        "settings": "ચેટ સેટિંગ્સ",
+        "clearHistory": "ઇતિહાસ સાફ કરો",
+        "privacyNote": "તમારી ચેટ સુરક્ષિત રીતે પ્રક્રિયા થાય છે.",
+        "tellMeMore": "વધુ કહો",
+        "howToDoThis": "આ કેવી રીતે કરવું?",
+        "whatElse": "બીજું શું?"
+    },
+    "forecast": {
+        "title": "ઊર્જા આગાહી",
+        "tomorrow": "આવતીકાલની આગાહી",
+        "weeklyForecast": "સાપ્તાહિક આગાહી",
+        "monthlyProjection": "માસિક અંદાજ",
+        "predictedUsage": "અંદાજિત વપરાશ",
+        "estimatedCost": "અંદાજિત ખર્ચ",
+        "confidence": "વિશ્વાસ"
+    },
+    "appliances": {
+        "title": "ઉપકરણો",
+        "breakdown": "અંદાજિત ઉપકરણ વિભાજન",
+        "detected": "શોધાયેલ ઉપકરણો",
+        "unidentified": "અજાણ વપરાશ",
+        "addManually": "મેન્યુઅલી ઉપકરણ ઉમેરો",
+        "waysToSave": "પૈસા બચાવવાના રસ્તાઓ"
+    },
+    "common": {
+        "loading": "લોડ થઈ રહ્યું છે...",
+        "save": "સેવ કરો",
+        "cancel": "રદ કરો",
+        "close": "બંધ કરો",
+        "confirm": "પુષ્ટિ કરો",
+        "delete": "કાઢી નાખો",
+        "edit": "સંપાદિત કરો",
+        "refresh": "રિફ્રેશ",
+        "viewAll": "બધું જુઓ",
+        "moreLanguages": "વધુ ભાષાઓ..."
+    },
+    "units": {
+        "watts": "W",
+        "kilowatts": "kW",
+        "kilowattHours": "kWh",
+        "volts": "V",
+        "amperes": "A",
+        "rupees": "₹",
+        "percentage": "%"
+    }
+}

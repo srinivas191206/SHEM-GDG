@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/solid';
 import { useThemeColors } from '../../../context/ThemeContext.tsx';
@@ -14,17 +15,26 @@ const data = [
 ];
 
 const CostAnalysisWidget = () => {
+    const { t } = useTranslation();
     const themeColors = useThemeColors();
 
+    const handleViewReport = () => {
+        // TODO: Open detailed cost report modal or navigate to report page
+        alert('Cost Report feature coming soon! This will show detailed breakdown of your weekly and monthly energy costs.');
+    };
+
     return (
-        <div className="bg-dashboard-card rounded-xl p-6 border border-dashboard-textSecondary/10 h-full">
+        <div className="bg-dashboard-card rounded-xl p-4 md:p-6 border border-dashboard-textSecondary/10 h-full w-full min-w-0 overflow-hidden">
             <div className="flex justify-between items-start mb-2">
-                <div>
-                    <h3 className="text-dashboard-text font-bold text-lg mb-1">Cost Analytics</h3>
-                    <p className="text-dashboard-textSecondary text-xs">Weekly Expenditure</p>
+                <div className="min-w-0">
+                    <h3 className="text-dashboard-text font-bold text-lg mb-1">{t('analytics.costAnalytics')}</h3>
+                    <p className="text-dashboard-textSecondary text-xs">{t('analytics.weeklyExpenditure')}</p>
                 </div>
-                <button className="bg-accent text-dashboard-bg px-3 py-1 rounded text-xs font-bold hover:bg-accent/90 transition-colors">
-                    View Report
+                <button
+                    onClick={handleViewReport}
+                    className="flex-shrink-0 bg-accent text-dashboard-bg px-3 py-1 rounded text-xs font-bold hover:bg-accent/90 transition-colors"
+                >
+                    {t('analytics.viewReport')}
                 </button>
             </div>
 
@@ -56,12 +66,12 @@ const CostAnalysisWidget = () => {
 
             <div className="flex justify-between items-end mt-2">
                 <div>
-                    <span className="text-dashboard-textSecondary text-xs">Total this week</span>
+                    <span className="text-dashboard-textSecondary text-xs">{t('analytics.totalThisWeek')}</span>
                     <p className="text-2xl font-bold text-dashboard-text">₹349.00</p>
                 </div>
                 <div className="text-right">
                     <span className="text-xs text-dashboard-success font-bold">+12% ↑</span>
-                    <p className="text-dashboard-textSecondary text-[10px]">vs last week</p>
+                    <p className="text-dashboard-textSecondary text-[10px]">{t('analytics.vsLastWeek')}</p>
                 </div>
             </div>
         </div>
@@ -69,3 +79,4 @@ const CostAnalysisWidget = () => {
 };
 
 export default CostAnalysisWidget;
+

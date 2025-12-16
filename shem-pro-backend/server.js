@@ -21,6 +21,11 @@ app.use('/api/demo', require('./routes/demo'));
 app.use('/api/esp32data', require('./routes/esp32data'));
 app.use('/api/chat', require('./routes/chat'));
 app.use('/api/peakHours', require('./routes/peakHours'));
+app.use('/api/anomaly', require('./routes/anomaly'));
+app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/appliance', require('./routes/appliance'));
+app.use('/api/forecast', require('./routes/forecast'));
+app.use('/api/settings', require('./routes/settings'));
 
 const PORT = process.env.PORT || 5000;
 

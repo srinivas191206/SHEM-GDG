@@ -1,0 +1,104 @@
+{
+    "dashboard": {
+        "title": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+        "overview": "ಅವಲೋಕನ",
+        "currentLoad": "ಪ್ರಸ್ತುತ ಲೋಡ್",
+        "dailyUsage": "ದೈನಂದಿನ ಬಳಕೆ",
+        "monthlyUsage": "ಮಾಸಿಕ ಬಳಕೆ",
+        "estimatedCost": "ಅಂದಾಜು ವೆಚ್ಚ",
+        "peakHours": "ಪೀಕ್ ಗಂಟೆಗಳು",
+        "offPeakHours": "ಆಫ್-ಪೀಕ್ ಗಂಟೆಗಳು",
+        "savingsToday": "ಇಂದಿನ ಉಳಿತಾಯ",
+        "powerFactor": "ಪವರ್ ಫ್ಯಾಕ್ಟರ್",
+        "liveConsumption": "ಲೈವ್ ಬಳಕೆ"
+    },
+    "analytics": {
+        "title": "ವಿಶ್ಲೇಷಣೆ",
+        "detailedAnalytics": "ವಿವರವಾದ ವಿಶ್ಲೇಷಣೆ",
+        "voltage": "ವೋಲ್ಟೇಜ್",
+        "current": "ಕರೆಂಟ್",
+        "power": "ಶಕ್ತಿ",
+        "frequency": "ಆವರ್ತನ",
+        "anomalies": "ಅಸಹಜತೆಗಳು",
+        "detected": "ಪತ್ತೆಯಾಗಿದೆ",
+        "resolved": "ಪರಿಹರಿಸಲಾಗಿದೆ",
+        "trends": "ಪ್ರವೃತ್ತಿಗಳು",
+        "weeklyExpenditure": "ವಾರದ ಖರ್ಚು",
+        "viewReport": "ವರದಿ ನೋಡಿ",
+        "totalThisWeek": "ಈ ವಾರ ಒಟ್ಟು"
+    },
+    "control": {
+        "title": "ನಿಯಂತ್ರಣ",
+        "deviceManagement": "ಸಾಧನ ನಿರ್ವಹಣೆ",
+        "devices": "ಸಾಧನಗಳು",
+        "status": "ಸ್ಥಿತಿ",
+        "on": "ಆನ್",
+        "off": "ಆಫ್",
+        "schedule": "ವೇಳಾಪಟ್ಟಿ",
+        "automation": "ಆಟೋಮೇಷನ್"
+    },
+    "settings": {
+        "title": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+        "language": "ಭಾಷೆ",
+        "languagePreferences": "ಭಾಷಾ ಆದ್ಯತೆಗಳು",
+        "selectLanguage": "ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ",
+        "languageAffects": "ಆಯ್ಕೆ ಮಾಡಿದ ಭಾಷೆ ಇಡೀ ವೆಬ್‌ಸೈಟ್ ಮೇಲೆ ಪ್ರಭಾವ ಬೀರುತ್ತದೆ",
+        "notifications": "ಅಧಿಸೂಚನೆಗಳು",
+        "profile": "ಪ್ರೊಫೈಲ್",
+        "theme": "ಥೀಮ್",
+        "darkMode": "ಡಾರ್ಕ್ ಮೋಡ್",
+        "lightMode": "ಲೈಟ್ ಮೋಡ್"
+    },
+    "chat": {
+        "askShem": "SHEM ಅನ್ನು ಕೇಳಿ",
+        "placeholder": "ನಿಮ್ಮ ಶಕ್ತಿ ಬಳಕೆಯ ಬಗ್ಗೆ ಕೇಳಿ...",
+        "thinking": "SHEM ಯೋಚಿಸುತ್ತಿದೆ...",
+        "rateLimited": "ದರ ಮಿತಿ. ಒಂದು ಗಂಟೆಯಲ್ಲಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+        "failedToConnect": "ಸಂಪರ್ಕಿಸಲು ವಿಫಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+        "retry": "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+        "settings": "ಚಾಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+        "clearHistory": "ಇತಿಹಾಸ ತೆರವುಗೊಳಿಸಿ",
+        "privacyNote": "ನಿಮ್ಮ ಚಾಟ್ ಸುರಕ್ಷಿತವಾಗಿ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತದೆ.",
+        "tellMeMore": "ಹೆಚ್ಚು ಹೇಳಿ",
+        "howToDoThis": "ಇದನ್ನು ಹೇಗೆ ಮಾಡುವುದು?",
+        "whatElse": "ಇನ್ನೇನು?"
+    },
+    "forecast": {
+        "title": "ಶಕ್ತಿ ಮುನ್ಸೂಚನೆ",
+        "tomorrow": "ನಾಳಿನ ಮುನ್ಸೂಚನೆ",
+        "weeklyForecast": "ವಾರದ ಮುನ್ಸೂಚನೆ",
+        "monthlyProjection": "ಮಾಸಿಕ ಪ್ರಕ್ಷೇಪಣ",
+        "predictedUsage": "ಊಹಿಸಿದ ಬಳಕೆ",
+        "estimatedCost": "ಅಂದಾಜು ವೆಚ್ಚ",
+        "confidence": "ನಂಬಿಕೆ"
+    },
+    "appliances": {
+        "title": "ಉಪಕರಣಗಳು",
+        "breakdown": "ಅಂದಾಜು ಉಪಕರಣ ವಿಭಜನೆ",
+        "detected": "ಪತ್ತೆಯಾದ ಉಪಕರಣಗಳು",
+        "unidentified": "ಗುರುತಿಸದ ಬಳಕೆ",
+        "addManually": "ಹಸ್ತಚಾಲಿತವಾಗಿ ಉಪಕರಣ ಸೇರಿಸಿ",
+        "waysToSave": "ಹಣ ಉಳಿಸುವ ಮಾರ್ಗಗಳು"
+    },
+    "common": {
+        "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+        "save": "ಉಳಿಸಿ",
+        "cancel": "ರದ್ದುಮಾಡಿ",
+        "close": "ಮುಚ್ಚಿ",
+        "confirm": "ದೃಢೀಕರಿಸಿ",
+        "delete": "ಅಳಿಸಿ",
+        "edit": "ಸಂಪಾದಿಸಿ",
+        "refresh": "ರಿಫ್ರೆಶ್",
+        "viewAll": "ಎಲ್ಲಾ ನೋಡಿ",
+        "moreLanguages": "ಹೆಚ್ಚಿನ ಭಾಷೆಗಳು..."
+    },
+    "units": {
+        "watts": "W",
+        "kilowatts": "kW",
+        "kilowattHours": "kWh",
+        "volts": "V",
+        "amperes": "A",
+        "rupees": "₹",
+        "percentage": "%"
+    }
+}

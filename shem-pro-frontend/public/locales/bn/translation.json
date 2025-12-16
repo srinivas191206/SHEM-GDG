@@ -1,0 +1,104 @@
+{
+    "dashboard": {
+        "title": "ড্যাশবোর্ড",
+        "overview": "সারসংক্ষেপ",
+        "currentLoad": "বর্তমান লোড",
+        "dailyUsage": "দৈনিক ব্যবহার",
+        "monthlyUsage": "মাসিক ব্যবহার",
+        "estimatedCost": "আনুমানিক খরচ",
+        "peakHours": "পিক আওয়ার",
+        "offPeakHours": "অফ-পিক আওয়ার",
+        "savingsToday": "আজকের সঞ্চয়",
+        "powerFactor": "পাওয়ার ফ্যাক্টর",
+        "liveConsumption": "লাইভ ব্যবহার"
+    },
+    "analytics": {
+        "title": "বিশ্লেষণ",
+        "detailedAnalytics": "বিস্তারিত বিশ্লেষণ",
+        "voltage": "ভোল্টেজ",
+        "current": "কারেন্ট",
+        "power": "পাওয়ার",
+        "frequency": "ফ্রিকোয়েন্সি",
+        "anomalies": "অস্বাভাবিকতা",
+        "detected": "সনাক্ত করা হয়েছে",
+        "resolved": "সমাধান করা হয়েছে",
+        "trends": "প্রবণতা",
+        "weeklyExpenditure": "সাপ্তাহিক খরচ",
+        "viewReport": "রিপোর্ট দেখুন",
+        "totalThisWeek": "এই সপ্তাহে মোট"
+    },
+    "control": {
+        "title": "নিয়ন্ত্রণ",
+        "deviceManagement": "ডিভাইস ব্যবস্থাপনা",
+        "devices": "ডিভাইস",
+        "status": "স্থিতি",
+        "on": "চালু",
+        "off": "বন্ধ",
+        "schedule": "সময়সূচী",
+        "automation": "অটোমেশন"
+    },
+    "settings": {
+        "title": "সেটিংস",
+        "language": "ভাষা",
+        "languagePreferences": "ভাষা পছন্দ",
+        "selectLanguage": "ভাষা নির্বাচন করুন",
+        "languageAffects": "নির্বাচিত ভাষা পুরো ওয়েবসাইটকে প্রভাবিত করে",
+        "notifications": "বিজ্ঞপ্তি",
+        "profile": "প্রোফাইল",
+        "theme": "থিম",
+        "darkMode": "ডার্ক মোড",
+        "lightMode": "লাইট মোড"
+    },
+    "chat": {
+        "askShem": "SHEM-কে জিজ্ঞাসা করুন",
+        "placeholder": "আপনার শক্তি ব্যবহার সম্পর্কে জিজ্ঞাসা করুন...",
+        "thinking": "SHEM ভাবছে...",
+        "rateLimited": "রেট সীমিত। এক ঘণ্টা পর আবার চেষ্টা করুন।",
+        "failedToConnect": "সংযোগ করতে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।",
+        "retry": "আবার চেষ্টা করুন",
+        "settings": "চ্যাট সেটিংস",
+        "clearHistory": "ইতিহাস মুছুন",
+        "privacyNote": "আপনার চ্যাট নিরাপদে প্রক্রিয়া করা হয়।",
+        "tellMeMore": "আরো বলুন",
+        "howToDoThis": "এটা কিভাবে করবেন?",
+        "whatElse": "আর কি?"
+    },
+    "forecast": {
+        "title": "শক্তি পূর্বাভাস",
+        "tomorrow": "আগামীকালের পূর্বাভাস",
+        "weeklyForecast": "সাপ্তাহিক পূর্বাভাস",
+        "monthlyProjection": "মাসিক প্রক্ষেপণ",
+        "predictedUsage": "পূর্বাভাসিত ব্যবহার",
+        "estimatedCost": "আনুমানিক খরচ",
+        "confidence": "আত্মবিশ্বাস"
+    },
+    "appliances": {
+        "title": "যন্ত্রপাতি",
+        "breakdown": "আনুমানিক যন্ত্রপাতি বিভাজন",
+        "detected": "সনাক্ত করা যন্ত্রপাতি",
+        "unidentified": "অজানা ব্যবহার",
+        "addManually": "ম্যানুয়ালি যন্ত্রপাতি যোগ করুন",
+        "waysToSave": "টাকা বাঁচানোর উপায়"
+    },
+    "common": {
+        "loading": "লোড হচ্ছে...",
+        "save": "সংরক্ষণ",
+        "cancel": "বাতিল",
+        "close": "বন্ধ",
+        "confirm": "নিশ্চিত করুন",
+        "delete": "মুছুন",
+        "edit": "সম্পাদনা",
+        "refresh": "রিফ্রেশ",
+        "viewAll": "সব দেখুন",
+        "moreLanguages": "আরো ভাষা..."
+    },
+    "units": {
+        "watts": "W",
+        "kilowatts": "kW",
+        "kilowattHours": "kWh",
+        "volts": "V",
+        "amperes": "A",
+        "rupees": "₹",
+        "percentage": "%"
+    }
+}

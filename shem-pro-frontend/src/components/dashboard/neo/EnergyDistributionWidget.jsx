@@ -1,30 +1,28 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/solid';
 import { useThemeColors } from '../../../context/ThemeContext.tsx';
 
-const data = [
-    { name: 'Lighting', value: 15 },
-    { name: 'AC / HVAC', value: 45 },
-    { name: 'Appliances', value: 30 },
-    { name: 'Others', value: 10 },
-];
-
 const EnergyDistributionWidget = () => {
+    const { t } = useTranslation();
     const themeColors = useThemeColors();
-    // Use theme colors directly or fallbacks if needed.
-    // Ideally we want dynamic colors based on theme if these hexes look bad in light mode.
-    // But fixed colors for categories usually work fine across themes.
-    // Let's keep the category colors but update the tooltip and container styles.
+
+    const data = [
+        { name: t('analytics.lighting'), value: 15 },
+        { name: t('analytics.acHvac'), value: 45 },
+        { name: t('analytics.appliances'), value: 30 },
+        { name: t('analytics.others'), value: 10 },
+    ];
 
     const COLORS = ['#f7b529', '#8b7ff4', '#22c55e', '#ef4444'];
 
     return (
-        <div className="bg-dashboard-card rounded-xl p-6 border border-dashboard-textSecondary/10 h-full">
+        <div className="bg-dashboard-card rounded-xl p-4 md:p-6 border border-dashboard-textSecondary/10 h-full w-full min-w-0 overflow-hidden">
             <div className="flex justify-between items-start mb-6">
                 <div>
-                    <h3 className="text-dashboard-text font-bold text-lg mb-1">Energy Breakdown</h3>
-                    <p className="text-dashboard-textSecondary text-xs">Simulated Distribution</p>
+                    <h3 className="text-dashboard-text font-bold text-lg mb-1">{t('analytics.energyBreakdown')}</h3>
+                    <p className="text-dashboard-textSecondary text-xs">{t('analytics.simulatedDistribution')}</p>
                 </div>
                 <button className="p-1.5 hover:bg-dashboard-text/5 rounded-lg text-dashboard-textSecondary transition-colors">
                     <EllipsisHorizontalIcon className="h-6 w-6" />
@@ -59,7 +57,7 @@ const EnergyDistributionWidget = () => {
                     {/* Center Text */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <span className="text-dashboard-text font-bold text-xl">100%</span>
-                        <span className="text-dashboard-textSecondary text-[10px] uppercase tracking-wider">Total</span>
+                        <span className="text-dashboard-textSecondary text-[10px] uppercase tracking-wider">{t('analytics.total')}</span>
                     </div>
                 </div>
 

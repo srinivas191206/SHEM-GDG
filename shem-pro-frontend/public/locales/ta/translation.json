@@ -1,0 +1,104 @@
+{
+    "dashboard": {
+        "title": "டாஷ்போர்டு",
+        "overview": "கண்ணோட்டம்",
+        "currentLoad": "தற்போதைய சுமை",
+        "dailyUsage": "தினசரி பயன்பாடு",
+        "monthlyUsage": "மாதாந்திர பயன்பாடு",
+        "estimatedCost": "மதிப்பிடப்பட்ட செலவு",
+        "peakHours": "பீக் மணிநேரம்",
+        "offPeakHours": "ஆஃப்-பீக் மணிநேரம்",
+        "savingsToday": "இன்றைய சேமிப்பு",
+        "powerFactor": "பவர் ஃபேக்டர்",
+        "liveConsumption": "நேரடி நுகர்வு"
+    },
+    "analytics": {
+        "title": "பகுப்பாய்வு",
+        "detailedAnalytics": "விரிவான பகுப்பாய்வு",
+        "voltage": "மின்னழுத்தம்",
+        "current": "மின்னோட்டம்",
+        "power": "சக்தி",
+        "frequency": "அதிர்வெண்",
+        "anomalies": "முரண்பாடுகள்",
+        "detected": "கண்டறியப்பட்டது",
+        "resolved": "தீர்க்கப்பட்டது",
+        "trends": "போக்குகள்",
+        "weeklyExpenditure": "வாராந்திர செலவு",
+        "viewReport": "அறிக்கை பார்",
+        "totalThisWeek": "இந்த வாரம் மொத்தம்"
+    },
+    "control": {
+        "title": "கட்டுப்பாடு",
+        "deviceManagement": "சாதன மேலாண்மை",
+        "devices": "சாதனங்கள்",
+        "status": "நிலை",
+        "on": "ஆன்",
+        "off": "ஆஃப்",
+        "schedule": "அட்டவணை",
+        "automation": "தானியங்கி"
+    },
+    "settings": {
+        "title": "அமைப்புகள்",
+        "language": "மொழி",
+        "languagePreferences": "மொழி விருப்பங்கள்",
+        "selectLanguage": "மொழியைத் தேர்ந்தெடுக்கவும்",
+        "languageAffects": "தேர்ந்தெடுக்கப்பட்ட மொழி முழு வலைத்தளத்தையும் பாதிக்கும்",
+        "notifications": "அறிவிப்புகள்",
+        "profile": "சுயவிவரம்",
+        "theme": "தீம்",
+        "darkMode": "டார்க் மோட்",
+        "lightMode": "லைட் மோட்"
+    },
+    "chat": {
+        "askShem": "SHEM-ஐ கேள்",
+        "placeholder": "உங்கள் ஆற்றல் பயன்பாடு பற்றி கேளுங்கள்...",
+        "thinking": "SHEM சிந்திக்கிறது...",
+        "rateLimited": "வீத வரம்பு. ஒரு மணி நேரத்தில் மீண்டும் முயற்சிக்கவும்.",
+        "failedToConnect": "இணைக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.",
+        "retry": "மீண்டும் முயற்சி",
+        "settings": "சாட் அமைப்புகள்",
+        "clearHistory": "வரலாற்றை அழி",
+        "privacyNote": "உங்கள் சாட் பாதுகாப்பாக செயலாக்கப்படுகிறது.",
+        "tellMeMore": "மேலும் சொல்",
+        "howToDoThis": "இது எப்படி செய்வது?",
+        "whatElse": "வேறு என்ன?"
+    },
+    "forecast": {
+        "title": "ஆற்றல் முன்னறிவிப்பு",
+        "tomorrow": "நாளை முன்னறிவிப்பு",
+        "weeklyForecast": "வாராந்திர முன்னறிவிப்பு",
+        "monthlyProjection": "மாதாந்திர கணக்கீடு",
+        "predictedUsage": "கணிக்கப்பட்ட பயன்பாடு",
+        "estimatedCost": "மதிப்பிடப்பட்ட செலவு",
+        "confidence": "நம்பகத்தன்மை"
+    },
+    "appliances": {
+        "title": "சாதனங்கள்",
+        "breakdown": "மதிப்பிடப்பட்ட சாதன பிரிப்பு",
+        "detected": "கண்டறியப்பட்ட சாதனங்கள்",
+        "unidentified": "அடையாளம் காணப்படாத நுகர்வு",
+        "addManually": "கைமுறையாக சாதனத்தைச் சேர்",
+        "waysToSave": "பணம் சேமிக்கும் வழிகள்"
+    },
+    "common": {
+        "loading": "ஏற்றுகிறது...",
+        "save": "சேமி",
+        "cancel": "ரத்து செய்",
+        "close": "மூடு",
+        "confirm": "உறுதிப்படுத்து",
+        "delete": "நீக்கு",
+        "edit": "திருத்து",
+        "refresh": "புதுப்பி",
+        "viewAll": "அனைத்தையும் காண்",
+        "moreLanguages": "மேலும் மொழிகள்..."
+    },
+    "units": {
+        "watts": "W",
+        "kilowatts": "kW",
+        "kilowattHours": "kWh",
+        "volts": "V",
+        "amperes": "A",
+        "rupees": "₹",
+        "percentage": "%"
+    }
+}

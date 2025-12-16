@@ -1,97 +1,115 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
+const { v4: uuidv4 } = require('uuid');
+const {
+    askQuestion,
+    getHistory,
+    getConversation
+} = require('../services/geminiAIInsightsService');
 
-// API configurations
-const getGeminiKey = () => process.env.VITE_GEMINI_KEY || process.env.GEMINI_API_KEY;
-const getGroqKey = () => process.env.VITE_GROQ_KEY || process.env.GROQ_API_KEY;
-const getOpenRouterKey = () => process.env.VITE_OPENROUTER_KEY || process.env.OPENROUTER_API_KEY;
-
-// API Call Functions
-const callGemini = async (prompt) => {
-    const key = getGeminiKey();
-    if (!key) throw new Error("Gemini Key Missing");
-
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`;
-    const response = await axios.post(url, {
-        contents: [{ parts: [{ text: prompt }] }]
-    });
-    return response.data.candidates[0].content.parts[0].text;
-};
-
-const callGroq = async (prompt) => {
-    const key = getGroqKey();
-    if (!key) throw new Error("Groq Key Missing");
-
-    const response = await axios.post('https://api.groq.com/openai/v1/chat/completions', {
-        messages: [{ role: 'user', content: prompt }],
-        model: 'llama3-70b-8192'
-    }, {
-        headers: {
-            'Authorization': `Bearer ${key}`,
-            'Content-Type': 'application/json'
-        }
-    });
-    return response.data.choices[0].message.content;
-};
-
-const callOpenRouter = async (prompt) => {
-    const key = getOpenRouterKey();
-    if (!key) throw new Error("OpenRouter Key Missing");
-
-    const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', {
-        messages: [{ role: 'user', content: prompt }],
-        model: 'openai/gpt-3.5-turbo'
-    }, {
-        headers: {
-            'Authorization': `Bearer ${key}`,
-        }
-    });
-    return response.data.choices[0].message.content;
-};
-
-// Main Chat Route
-router.post('/', async (req, res) => {
-    const { message, contextData } = req.body;
-
-    const systemPrompt = `You are SHEM-AI, a smart home energy assistant. 
-    Current Energy Data: ${JSON.stringify(contextData || {})}
-    User Question: ${message}
-    Provide a concise, helpful response focusing on energy efficiency and cost savings. Keep it under 50 words unless asked for details.`;
-
+// @route   POST /api/chat/ask
+// @desc    Ask a question with context-aware AI response
+// @access  Public
+router.post('/ask', async (req, res) => {
     try {
-        // Attempt 1: Gemini
-        try {
-            console.log("Attempting Gemini...");
-            const response = await callGemini(systemPrompt);
-            return res.json({ response });
-        } catch (error) {
-            console.error("Gemini failed:", error.message);
+        const { userId, question, contextData, sessionId, language, voiceInput } = req.body;
+
+        if (!userId) {
+            return res.status(400).json({ error: 'Missing userId' });
+        }
+        if (!question || typeof question !== 'string') {
+            return res.status(400).json({ error: 'Missing or invalid question' });
         }
 
-        // Attempt 2: Groq
-        try {
-            console.log("Attempting Groq...");
-            const response = await callGroq(systemPrompt);
-            return res.json({ response });
-        } catch (error) {
-            console.error("Groq failed:", error.message);
+        // Generate session ID if not provided
+        const session = sessionId || uuidv4();
+
+        // Pass language and voice flag
+        const response = await askQuestion(userId, session, question, contextData, language || 'en', voiceInput);
+
+        if (response.error === 'rate_limited') {
+            return res.status(429).json(response);
         }
 
-        // Attempt 3: OpenRouter
-        try {
-            console.log("Attempting OpenRouter...");
-            const response = await callOpenRouter(systemPrompt);
-            return res.json({ response });
-        } catch (error) {
-            console.error("OpenRouter failed:", error.message);
-        }
-
-        throw new Error("All AI providers failed.");
-
+        res.json(response);
     } catch (error) {
-        console.error("All Chat Failures:", error.message);
-        res.status(500).json({ error: "Sorry, I encountered an error communicating with the AI service. Please check your API keys." });
+        console.error('Chat Ask Error:', error);
+        res.status(500).json({
+            error: 'Failed to get AI response',
+            message: error.message
+        });
+    }
+});
+
+// @route   POST /api/chat (legacy endpoint - forwards to /ask)
+// @desc    Legacy chat endpoint for backwards compatibility
+// @access  Public
+router.post('/', async (req, res) => {
+    try {
+        const { message, contextData, userId = 'anonymous' } = req.body;
+
+        if (!message) {
+            return res.status(400).json({ error: 'Missing message' });
+        }
+
+        const sessionId = uuidv4();
+        const response = await askQuestion(userId, sessionId, message, contextData);
+
+        if (response.error === 'rate_limited') {
+            return res.status(429).json({ error: response.message });
+        }
+
+        // Return in legacy format
+        res.json({ response: response.answer });
+    } catch (error) {
+        console.error('Chat Error:', error);
+        res.status(500).json({
+            error: 'Sorry, I encountered an error communicating with the AI service.'
+        });
+    }
+});
+
+// @route   GET /api/chat/history
+// @desc    Get conversation history for a user
+// @access  Public
+router.get('/history', async (req, res) => {
+    try {
+        const { userId, limit = 10 } = req.query;
+
+        if (!userId) {
+            return res.status(400).json({ error: 'Missing userId' });
+        }
+
+        const history = await getHistory(userId, parseInt(limit));
+        res.json({ conversations: history });
+    } catch (error) {
+        console.error('Chat History Error:', error);
+        res.status(500).json({ error: 'Failed to fetch history' });
+    }
+});
+
+// @route   GET /api/chat/conversation/:sessionId
+// @desc    Get specific conversation by session ID
+// @access  Public
+router.get('/conversation/:sessionId', async (req, res) => {
+    try {
+        const { sessionId } = req.params;
+        const { userId } = req.query;
+
+        if (!userId) {
+            return res.status(400).json({ error: 'Missing userId' });
+        }
+
+        const conversation = await getConversation(userId, sessionId);
+
+        if (!conversation) {
+            return res.status(404).json({ error: 'Conversation not found' });
+        }
+
+        res.json(conversation);
+    } catch (error) {
+        console.error('Get Conversation Error:', error);
+        res.status(500).json({ error: 'Failed to fetch conversation' });
     }
 });
 

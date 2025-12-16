@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BellIcon, ArrowRightStartOnRectangleIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { format } from 'date-fns';
 import { useAuth } from '../../../context/AuthContext';
 import { useNotification } from '../../../context/NotificationContext';
+import { NavbarLanguageSwitcher } from '../../LanguageSwitcher';
 
 const DashboardHeader = ({ title, onProfileClick }) => {
+    const { t } = useTranslation();
     const [currentDate, setCurrentDate] = useState(new Date());
     const [showNotifications, setShowNotifications] = useState(false);
     const { logout, user } = useAuth();
@@ -82,6 +85,9 @@ const DashboardHeader = ({ title, onProfileClick }) => {
                         </div>
                     )}
                 </div>
+
+                {/* Language Switcher */}
+                <NavbarLanguageSwitcher />
 
                 <div className="flex items-center gap-3 pl-6 border-l border-dashboard-textSecondary/20">
                     <button
