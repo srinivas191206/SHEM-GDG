@@ -1,34 +1,12 @@
 {
-    "version": 2,
-    "builds": [
+    "rewrites": [
         {
-            "src": "shem-pro-backend/server.js",
-            "use": "@vercel/node"
+            "source": "/api/(.*)",
+            "destination": "/api/index.js"
         },
         {
-            "src": "shem-pro-frontend/package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist"
-            }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "/shem-pro-backend/server.js"
-        },
-        {
-            "src": "/assets/(.*)",
-            "dest": "/shem-pro-frontend/assets/$1"
-        },
-        {
-            "src": "/(.*\\.(ico|png|jpg|jpeg|svg|css|js|json))",
-            "dest": "/shem-pro-frontend/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/shem-pro-frontend/index.html"
+            "source": "/(.*)",
+            "destination": "/shem-pro-frontend/index.html"
         }
     ]
 }
