@@ -20,7 +20,7 @@ const AiInsights = ({ data }) => {
     // If periodic updates are desired, implement a timer with a longer interval.
 
     return (
-        <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-xl p-6 border border-white/10 relative overflow-hidden text-white">
+        <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-xl p-6 border border-dashboard-textSecondary/20 relative overflow-hidden text-dashboard-text">
             <div className="absolute top-0 right-0 p-4 opacity-10">
                 <SparklesIcon className="w-24 h-24 text-white" />
             </div>

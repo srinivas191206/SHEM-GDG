@@ -36,13 +36,13 @@ const ScheduleModal = ({ isOpen, onClose, peakHours, offPeakHours }) => {
 
     return (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={onClose}>
-            <div className="bg-dashboard-card rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-auto border border-white/10" onClick={e => e.stopPropagation()}>
+            <div className="bg-dashboard-card rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-auto border border-dashboard-textSecondary/20" onClick={e => e.stopPropagation()}>
                 <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-dashboard-text flex items-center gap-2">
                         <CalendarDaysIcon className="w-6 h-6 text-accent" />
                         Weekly Peak Hours Schedule
                     </h3>
-                    <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <button onClick={onClose} className="p-2 hover:bg-dashboard-textSecondary/20 rounded-full transition-colors">
                         <XMarkIcon className="w-5 h-5 text-white/70" />
                     </button>
                 </div>
@@ -71,7 +71,7 @@ const ScheduleModal = ({ isOpen, onClose, peakHours, offPeakHours }) => {
                                                 ? 'bg-red-500/70'
                                                 : isInRange(h, offPeakHours)
                                                     ? 'bg-green-500/70'
-                                                    : 'bg-white/10'
+                                                    : 'bg-dashboard-textSecondary/20'
                                                 }`}
                                             title={`${h}:00 - ${isInRange(h, peakHours) ? 'Peak' : isInRange(h, offPeakHours) ? 'Off-Peak' : 'Standard'}`}
                                         />
@@ -81,7 +81,7 @@ const ScheduleModal = ({ isOpen, onClose, peakHours, offPeakHours }) => {
                         ))}
 
                         {/* Legend */}
-                        <div className="flex gap-6 mt-4 pt-4 border-t border-white/10">
+                        <div className="flex gap-6 mt-4 pt-4 border-t border-dashboard-textSecondary/20">
                             <div className="flex items-center gap-2">
                                 <div className="w-4 h-4 bg-red-500/70 rounded" />
                                 <span className="text-sm text-dashboard-textSecondary">Peak Hours (Higher Rate)</span>
@@ -91,7 +91,7 @@ const ScheduleModal = ({ isOpen, onClose, peakHours, offPeakHours }) => {
                                 <span className="text-sm text-dashboard-textSecondary">Off-Peak Hours (Lower Rate)</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <div className="w-4 h-4 bg-white/10 rounded" />
+                                <div className="w-4 h-4 bg-dashboard-textSecondary/20 rounded" />
                                 <span className="text-sm text-dashboard-textSecondary">Standard Rate</span>
                             </div>
                         </div>
@@ -121,13 +121,13 @@ const CalculatorModal = ({ isOpen, onClose, peakRate, offPeakRate }) => {
 
     return (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={onClose}>
-            <div className="bg-dashboard-card rounded-2xl p-6 max-w-md w-full border border-white/10" onClick={e => e.stopPropagation()}>
+            <div className="bg-dashboard-card rounded-2xl p-6 max-w-md w-full border border-dashboard-textSecondary/20" onClick={e => e.stopPropagation()}>
                 <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-dashboard-text flex items-center gap-2">
                         <CalculatorIcon className="w-6 h-6 text-accent" />
                         Savings Calculator
                     </h3>
-                    <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <button onClick={onClose} className="p-2 hover:bg-dashboard-textSecondary/20 rounded-full transition-colors">
                         <XMarkIcon className="w-5 h-5 text-white/70" />
                     </button>
                 </div>
@@ -144,7 +144,7 @@ const CalculatorModal = ({ isOpen, onClose, peakRate, offPeakRate }) => {
                             onChange={e => setConsumption(parseInt(e.target.value))}
                             className="w-full accent-accent"
                         />
-                        <div className="text-right text-white font-bold">{consumption} Wh</div>
+                        <div className="text-right text-dashboard-text font-bold">{consumption} Wh</div>
                     </div>
 
                     {/* Peak percentage input */}
@@ -158,20 +158,20 @@ const CalculatorModal = ({ isOpen, onClose, peakRate, offPeakRate }) => {
                             onChange={e => setPeakPercent(parseInt(e.target.value))}
                             className="w-full accent-accent"
                         />
-                        <div className="text-right text-white font-bold">{peakPercent}%</div>
+                        <div className="text-right text-dashboard-text font-bold">{peakPercent}%</div>
                     </div>
 
                     {/* Results */}
-                    <div className="bg-white/5 rounded-xl p-4 space-y-3">
+                    <div className="bg-dashboard-textSecondary/10 rounded-xl p-4 space-y-3">
                         <div className="flex justify-between">
                             <span className="text-dashboard-textSecondary">Current Daily Cost</span>
-                            <span className="text-white font-bold">₹{totalCost}</span>
+                            <span className="text-dashboard-text font-bold">₹{totalCost}</span>
                         </div>
                         <div className="flex justify-between">
                             <span className="text-dashboard-textSecondary">If 50% shifted to off-peak</span>
                             <span className="text-green-400 font-bold">₹{shiftedTotal}</span>
                         </div>
-                        <div className="border-t border-white/10 pt-3 flex justify-between">
+                        <div className="border-t border-dashboard-textSecondary/20 pt-3 flex justify-between">
                             <span className="text-accent font-bold">Potential Daily Savings</span>
                             <span className="text-accent font-bold">₹{savings}</span>
                         </div>
@@ -337,7 +337,7 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
                             <span className="text-2xl">{isPeak ? '⚡' : '💚'}</span>
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold text-white">Smart Tariff Savings</h3>
+                            <h3 className="text-lg font-bold text-dashboard-text">Smart Tariff Savings</h3>
                             <p className="text-sm text-dashboard-textSecondary">
                                 {isPeak ? 'Peak Hours' : 'Off-Peak Hours'} (₹{analysisData?.currentRate || 6}/unit)
                             </p>
@@ -346,7 +346,7 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
                     <button
                         onClick={analyzeConsumption}
                         disabled={loading}
-                        className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                        className="p-2 hover:bg-dashboard-textSecondary/20 rounded-full transition-colors"
                     >
                         <ArrowPathIcon className={`w-5 h-5 text-white/70 ${loading ? 'animate-spin' : ''}`} />
                     </button>
@@ -355,23 +355,23 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
                 {/* Countdown Timer */}
                 <div className={`flex items-center gap-2 p-3 rounded-xl mb-4 ${isPeak ? 'bg-red-500/10' : 'bg-green-500/10'}`}>
                     <ClockIcon className="w-5 h-5 text-accent" />
-                    <span className="text-sm text-white">
+                    <span className="text-sm text-dashboard-text">
                         ⏱️ {countdown.hours}h {countdown.minutes}m until {isPeak ? 'off-peak rates' : 'peak hours'}
                     </span>
                 </div>
 
                 {/* Current Status */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="bg-white/5 rounded-xl p-4">
+                    <div className="bg-dashboard-textSecondary/10 rounded-xl p-4">
                         <p className="text-xs text-dashboard-textSecondary mb-1">Current Power</p>
-                        <p className="text-xl font-bold text-white flex items-center gap-2">
+                        <p className="text-xl font-bold text-dashboard-text flex items-center gap-2">
                             <BoltIcon className="w-5 h-5 text-yellow-400" />
                             {data?.power?.toFixed(0) || analysisData?.currentConsumption || 0} W
                         </p>
                     </div>
-                    <div className="bg-white/5 rounded-xl p-4">
+                    <div className="bg-dashboard-textSecondary/10 rounded-xl p-4">
                         <p className="text-xs text-dashboard-textSecondary mb-1">Hourly Cost</p>
-                        <p className="text-xl font-bold text-white">
+                        <p className="text-xl font-bold text-dashboard-text">
                             {analysisData?.currentCost || '₹0'}
                         </p>
                     </div>
@@ -384,7 +384,7 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
                             <span>Savings if shifted to off-peak</span>
                             <span className="text-green-400 font-bold">{savingsPercentage}% saved</span>
                         </div>
-                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-2 bg-dashboard-textSecondary/20 rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
                                 style={{ width: `${savingsPercentage}%` }}
@@ -398,16 +398,16 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
 
                 {/* Appliance Suggestions */}
                 <div className="mb-4">
-                    <p className="text-sm font-medium text-white mb-3">💡 Shift to Off-Peak & Save</p>
+                    <p className="text-sm font-medium text-dashboard-text mb-3">💡 Shift to Off-Peak & Save</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {APPLIANCE_SUGGESTIONS.slice(0, 4).map((appliance, idx) => (
                             <div
                                 key={idx}
-                                className="flex items-center gap-3 bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors cursor-pointer"
+                                className="flex items-center gap-3 bg-dashboard-textSecondary/10 rounded-lg p-3 hover:bg-dashboard-textSecondary/20 transition-colors cursor-pointer"
                             >
                                 <span className="text-xl">{appliance.icon}</span>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-sm text-white font-medium truncate">{appliance.name}</p>
+                                    <p className="text-sm text-dashboard-text font-medium truncate">{appliance.name}</p>
                                     <p className="text-xs text-dashboard-textSecondary truncate">{appliance.suggestion}</p>
                                 </div>
                                 <span className="text-xs text-green-400 whitespace-nowrap">₹{appliance.savings}/day</span>
@@ -418,7 +418,7 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
 
                 {/* 24h Forecast Swiper */}
                 <div className="mb-4">
-                    <p className="text-sm font-medium text-white mb-2">📊 24-Hour Forecast</p>
+                    <p className="text-sm font-medium text-dashboard-text mb-2">📊 24-Hour Forecast</p>
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                         {forecastItems.map((item, idx) => (
                             <div
@@ -439,7 +439,7 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
                 <div className="grid grid-cols-2 gap-3">
                     <button
                         onClick={() => setShowScheduleModal(true)}
-                        className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors text-white text-sm font-medium"
+                        className="flex items-center justify-center gap-2 px-4 py-3 bg-dashboard-textSecondary/10 hover:bg-dashboard-textSecondary/20 rounded-xl transition-colors text-dashboard-text text-sm font-medium"
                     >
                         <CalendarDaysIcon className="w-4 h-4" />
                         View Schedule
@@ -454,11 +454,11 @@ const PeakHoursCard = ({ data, userId = 'user123' }) => {
                 </div>
 
                 {/* Next Off-Peak Indicator */}
-                <div className="mt-4 flex items-center justify-between p-3 bg-white/5 rounded-xl">
+                <div className="mt-4 flex items-center justify-between p-3 bg-dashboard-textSecondary/10 rounded-xl">
                     <div className="flex items-center gap-2">
                         <span className="text-green-400">🌙</span>
                         <span className="text-sm text-dashboard-textSecondary">
-                            Next Off-Peak: <span className="text-white">12 AM - 6 AM</span>
+                            Next Off-Peak: <span className="text-dashboard-text">12 AM - 6 AM</span>
                         </span>
                     </div>
                     <ChevronRightIcon className="w-4 h-4 text-dashboard-textSecondary" />

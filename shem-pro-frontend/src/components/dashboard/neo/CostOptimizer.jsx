@@ -101,7 +101,7 @@ const BarChart = ({ peakUnits, offPeakUnits, peakCost, offPeakCost }) => {
                     style={{ height: `${peakHeight}%`, minHeight: '20px' }}
                 />
                 <div className="mt-2 text-center">
-                    <p className="text-white font-bold">{peakUnits} units</p>
+                    <p className="text-dashboard-text font-bold">{peakUnits} units</p>
                     <p className="text-xs text-dashboard-textSecondary">Peak Hours</p>
                 </div>
             </div>
@@ -114,7 +114,7 @@ const BarChart = ({ peakUnits, offPeakUnits, peakCost, offPeakCost }) => {
                     style={{ height: `${offPeakHeight}%`, minHeight: '20px' }}
                 />
                 <div className="mt-2 text-center">
-                    <p className="text-white font-bold">{offPeakUnits} units</p>
+                    <p className="text-dashboard-text font-bold">{offPeakUnits} units</p>
                     <p className="text-xs text-dashboard-textSecondary">Off-Peak</p>
                 </div>
             </div>
@@ -137,9 +137,9 @@ const CurrentCostsTab = ({ data }) => {
         <div className="space-y-6">
             {/* Summary Cards */}
             <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/5 rounded-xl p-4">
+                <div className="bg-dashboard-textSecondary/10 rounded-xl p-4">
                     <p className="text-sm text-dashboard-textSecondary">Total Consumption</p>
-                    <p className="text-2xl font-bold text-white">{totalUnits} <span className="text-sm font-normal">units</span></p>
+                    <p className="text-2xl font-bold text-dashboard-text">{totalUnits} <span className="text-sm font-normal">units</span></p>
                 </div>
                 <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-xl p-4 border border-green-500/20">
                     <p className="text-sm text-dashboard-textSecondary">Total Cost</p>
@@ -148,34 +148,34 @@ const CurrentCostsTab = ({ data }) => {
             </div>
 
             {/* Breakdown */}
-            <div className="bg-white/5 rounded-xl p-4 space-y-3">
-                <h4 className="text-sm font-medium text-white mb-3">Cost Breakdown</h4>
+            <div className="bg-dashboard-textSecondary/10 rounded-xl p-4 space-y-3">
+                <h4 className="text-sm font-medium text-dashboard-text mb-3">Cost Breakdown</h4>
 
-                <div className="flex justify-between items-center py-2 border-b border-white/5">
+                <div className="flex justify-between items-center py-2 border-b border-dashboard-textSecondary/20">
                     <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-red-500 rounded-full" />
                         <span className="text-dashboard-textSecondary">Peak Hours ({peakUnits} units @ ₹{peakRate})</span>
                     </div>
-                    <span className="text-white font-bold">₹{peakCost}</span>
+                    <span className="text-dashboard-text font-bold">₹{peakCost}</span>
                 </div>
 
-                <div className="flex justify-between items-center py-2 border-b border-white/5">
+                <div className="flex justify-between items-center py-2 border-b border-dashboard-textSecondary/20">
                     <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-green-500 rounded-full" />
                         <span className="text-dashboard-textSecondary">Off-Peak ({offPeakUnits} units @ ₹{offPeakRate})</span>
                     </div>
-                    <span className="text-white font-bold">₹{offPeakCost}</span>
+                    <span className="text-dashboard-text font-bold">₹{offPeakCost}</span>
                 </div>
 
                 <div className="flex justify-between items-center pt-2">
-                    <span className="text-white font-medium">Total This Month</span>
+                    <span className="text-dashboard-text font-medium">Total This Month</span>
                     <span className="text-accent font-bold text-lg">₹{totalCost}</span>
                 </div>
             </div>
 
             {/* Bar Chart */}
-            <div className="bg-white/5 rounded-xl p-4">
-                <h4 className="text-sm font-medium text-white mb-2">Peak vs Off-Peak Visualization</h4>
+            <div className="bg-dashboard-textSecondary/10 rounded-xl p-4">
+                <h4 className="text-sm font-medium text-dashboard-text mb-2">Peak vs Off-Peak Visualization</h4>
                 <BarChart
                     peakUnits={peakUnits}
                     offPeakUnits={offPeakUnits}
@@ -215,7 +215,7 @@ const WhatIfTab = ({ data }) => {
         <div className="space-y-6">
             {/* Interactive Slider */}
             <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-xl p-6 border border-purple-500/20">
-                <h4 className="text-white font-medium mb-4 flex items-center gap-2">
+                <h4 className="text-dashboard-text font-medium mb-4 flex items-center gap-2">
                     <CalculatorIcon className="w-5 h-5 text-purple-400" />
                     Adjust Peak Usage Reduction
                 </h4>
@@ -223,7 +223,7 @@ const WhatIfTab = ({ data }) => {
                 <div className="mb-4">
                     <div className="flex justify-between text-sm mb-2">
                         <span className="text-dashboard-textSecondary">Reduce peak usage by:</span>
-                        <span className="text-white font-bold">{peakReduction}%</span>
+                        <span className="text-dashboard-text font-bold">{peakReduction}%</span>
                     </div>
                     <input
                         type="range"
@@ -231,7 +231,7 @@ const WhatIfTab = ({ data }) => {
                         max="100"
                         value={peakReduction}
                         onChange={(e) => setPeakReduction(parseInt(e.target.value))}
-                        className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                        className="w-full h-2 bg-dashboard-textSecondary/20 rounded-lg appearance-none cursor-pointer accent-purple-500"
                     />
                     <div className="flex justify-between text-xs text-dashboard-textSecondary mt-1">
                         <span>0%</span>
@@ -242,11 +242,11 @@ const WhatIfTab = ({ data }) => {
 
                 {/* Real-time savings display */}
                 <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="bg-white/10 rounded-lg p-4 text-center">
+                    <div className="bg-dashboard-textSecondary/15 rounded-lg p-4 text-center">
                         <p className="text-sm text-dashboard-textSecondary">Monthly Savings</p>
                         <p className="text-2xl font-bold text-green-400">₹{actualSavings.toFixed(0)}</p>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-4 text-center">
+                    <div className="bg-dashboard-textSecondary/15 rounded-lg p-4 text-center">
                         <p className="text-sm text-dashboard-textSecondary">Annual Savings</p>
                         <p className="text-2xl font-bold text-accent">₹{annualSavings.toFixed(0)}</p>
                     </div>
@@ -255,19 +255,19 @@ const WhatIfTab = ({ data }) => {
 
             {/* Scenario Cards */}
             <div className="space-y-3">
-                <h4 className="text-sm font-medium text-white">Quick Scenarios</h4>
+                <h4 className="text-sm font-medium text-dashboard-text">Quick Scenarios</h4>
 
                 {scenarios.map((scenario, idx) => (
                     <div
                         key={idx}
-                        className="flex items-center justify-between bg-white/5 rounded-xl p-4 hover:bg-white/10 transition-colors cursor-pointer"
+                        className="flex items-center justify-between bg-dashboard-textSecondary/10 rounded-xl p-4 hover:bg-dashboard-textSecondary/20 transition-colors cursor-pointer"
                     >
                         <div className="flex items-center gap-3">
                             <div className="p-2 bg-accent/20 rounded-lg">
                                 <BoltIcon className="w-5 h-5 text-accent" />
                             </div>
                             <div>
-                                <p className="text-white font-medium">Shift {scenario.percent}% of {scenario.appliance}</p>
+                                <p className="text-dashboard-text font-medium">Shift {scenario.percent}% of {scenario.appliance}</p>
                                 <p className="text-xs text-dashboard-textSecondary">Move to off-peak hours</p>
                             </div>
                         </div>
@@ -288,7 +288,7 @@ const WhatIfTab = ({ data }) => {
                     </div>
                     <div className="text-right">
                         <p className="text-dashboard-textSecondary text-sm">Annual</p>
-                        <p className="text-xl font-bold text-white">₹{scenarios.reduce((sum, s) => sum + s.savings * 12, 0)}</p>
+                        <p className="text-xl font-bold text-dashboard-text">₹{scenarios.reduce((sum, s) => sum + s.savings * 12, 0)}</p>
                     </div>
                 </div>
             </div>
@@ -306,14 +306,14 @@ const ActionPlanTab = ({ completedActions, onToggleAction }) => {
     return (
         <div className="space-y-6">
             {/* Progress */}
-            <div className="bg-white/5 rounded-xl p-4">
+            <div className="bg-dashboard-textSecondary/10 rounded-xl p-4">
                 <div className="flex justify-between items-center mb-3">
                     <span className="text-dashboard-textSecondary text-sm">Your Progress</span>
-                    <span className="text-white font-medium">
+                    <span className="text-dashboard-text font-medium">
                         {completedActions.length}/{ACTION_ITEMS.length} actions completed
                     </span>
                 </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-dashboard-textSecondary/20 rounded-full overflow-hidden">
                     <div
                         className="h-full bg-gradient-to-r from-accent to-yellow-400 transition-all duration-500"
                         style={{ width: `${(completedActions.length / ACTION_ITEMS.length) * 100}%` }}
@@ -335,7 +335,7 @@ const ActionPlanTab = ({ completedActions, onToggleAction }) => {
                             key={item.id}
                             className={`relative rounded-xl p-4 transition-all duration-300 ${isCompleted
                                 ? 'bg-green-900/20 border border-green-500/30'
-                                : 'bg-white/5 hover:bg-white/10'
+                                : 'bg-dashboard-textSecondary/10 hover:bg-dashboard-textSecondary/20'
                                 }`}
                         >
                             <div className="flex items-start gap-4">
@@ -343,7 +343,7 @@ const ActionPlanTab = ({ completedActions, onToggleAction }) => {
 
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <h4 className={`font-medium ${isCompleted ? 'text-green-400 line-through' : 'text-white'}`}>
+                                        <h4 className={`font-medium ${isCompleted ? 'text-green-400 line-through' : 'text-dashboard-text'}`}>
                                             {item.title}
                                         </h4>
                                         <EffortBadge effort={item.effort} />
@@ -360,7 +360,7 @@ const ActionPlanTab = ({ completedActions, onToggleAction }) => {
                                     onClick={() => onToggleAction(item.id)}
                                     className={`p-2 rounded-lg transition-colors ${isCompleted
                                         ? 'bg-green-500/20 text-green-400'
-                                        : 'bg-white/10 text-dashboard-textSecondary hover:text-white'
+                                        : 'bg-dashboard-textSecondary/15 text-dashboard-textSecondary hover:text-dashboard-text'
                                         }`}
                                 >
                                     <CheckCircleIcon className="w-6 h-6" />
@@ -473,23 +473,23 @@ const CostOptimizer = ({ userId = 'user123', onNavigateToControl }) => {
     }, [fetchData]);
 
     return (
-        <div className="bg-dashboard-card rounded-2xl border border-white/10 overflow-hidden">
+        <div className="bg-dashboard-card rounded-2xl border border-dashboard-textSecondary/20 overflow-hidden">
             {/* Header */}
-            <div className="p-6 border-b border-white/10">
+            <div className="p-6 border-b border-dashboard-textSecondary/20">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <div className="p-3 bg-accent/20 rounded-xl">
                             <CalculatorIcon className="w-6 h-6 text-accent" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-bold text-white">Cost Optimizer</h2>
+                            <h2 className="text-xl font-bold text-dashboard-text">Cost Optimizer</h2>
                             <p className="text-sm text-dashboard-textSecondary">Maximize your savings potential</p>
                         </div>
                     </div>
                     <button
                         onClick={fetchData}
                         disabled={loading}
-                        className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                        className="p-2 hover:bg-dashboard-textSecondary/20 rounded-full transition-colors"
                     >
                         <ArrowPathIcon className={`w-5 h-5 text-dashboard-textSecondary ${loading ? 'animate-spin' : ''}`} />
                     </button>
@@ -497,14 +497,14 @@ const CostOptimizer = ({ userId = 'user123', onNavigateToControl }) => {
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex border-b border-white/10">
+            <div className="flex border-b border-dashboard-textSecondary/20">
                 {tabs.map((tab, idx) => (
                     <button
                         key={idx}
                         onClick={() => setActiveTab(idx)}
                         className={`flex-1 flex items-center justify-center gap-2 px-4 py-4 text-sm font-medium transition-colors ${activeTab === idx
                             ? 'text-accent border-b-2 border-accent bg-accent/5'
-                            : 'text-dashboard-textSecondary hover:text-white hover:bg-white/5'
+                            : 'text-dashboard-textSecondary hover:text-dashboard-text hover:bg-dashboard-textSecondary/10'
                             }`}
                     >
                         <tab.icon className="w-4 h-4" />
@@ -534,18 +534,18 @@ const CostOptimizer = ({ userId = 'user123', onNavigateToControl }) => {
             </div>
 
             {/* Bottom CTA */}
-            <div className="p-6 border-t border-white/10 bg-white/5">
+            <div className="p-6 border-t border-dashboard-textSecondary/20 bg-dashboard-textSecondary/10">
                 <div className="flex flex-col sm:flex-row gap-3">
                     <button
                         onClick={onNavigateToControl}
-                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 rounded-xl transition-colors text-white font-medium"
+                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 rounded-xl transition-colors text-primary-DEFAULT font-medium"
                     >
                         <CogIcon className="w-5 h-5" />
                         Enable Smart Scheduling
                     </button>
                     <button
                         onClick={handlePrint}
-                        className="flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors text-white font-medium"
+                        className="flex items-center justify-center gap-2 px-6 py-3 bg-dashboard-textSecondary/15 hover:bg-dashboard-textSecondary/25 rounded-xl transition-colors text-dashboard-text font-medium"
                     >
                         <PrinterIcon className="w-5 h-5" />
                         Print Plan

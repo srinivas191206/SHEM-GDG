@@ -96,7 +96,7 @@ const DashboardHeader = ({ title, onProfileClick }) => {
                     </button>
                     <button
                         onClick={logout}
-                        className="p-2 text-dashboard-textSecondary hover:text-dashboard-danger transition-colors bg-white/5 rounded-lg hover:bg-white/10"
+                        className="p-2 text-dashboard-textSecondary hover:text-dashboard-danger transition-colors bg-dashboard-textSecondary/10 rounded-lg hover:bg-dashboard-textSecondary/20"
                         title="Logout"
                     >
                         <ArrowRightStartOnRectangleIcon className="h-5 w-5" />
