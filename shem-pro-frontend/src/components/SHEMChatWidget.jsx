@@ -225,16 +225,25 @@ const SHEMChatWidget = ({
                 })
             });
 
-            const data = await response.json();
-
             if (response.status === 429) {
                 setError(`Rate limited. Try again in an hour.`);
                 return;
             }
 
+            const contentType = response.headers.get("content-type");
             if (!response.ok) {
-                throw new Error(data.error || 'Failed to get response');
+                const text = await response.text();
+                console.error('API Error Response:', response.status, text);
+                // Try to parse JSON error if possible
+                try {
+                    const jsonError = JSON.parse(text);
+                    throw new Error(jsonError.error || `Server error: ${response.status}`);
+                } catch (e) {
+                    throw new Error(`Server returned ${response.status}: ${text.substring(0, 50)}...`);
+                }
             }
+
+            const data = await response.json();
 
             if (data.sessionId && !sessionId) setSessionId(data.sessionId);
             if (data.rateLimitRemaining !== undefined) setRateLimitRemaining(data.rateLimitRemaining);
