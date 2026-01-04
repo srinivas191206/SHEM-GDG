@@ -125,3 +125,8 @@ create table if not exists energy_readings (
 -- Row Level Security (RLS) Policies (Optional but Recommended)
 -- alter table consumption_history enable row level security;
 -- create policy "Users can view own data" on consumption_history for select using (auth.uid() = user_id);
+
+-- 9. Additions for Enhanced Data (PF & Frequency)
+-- Run this if your table already exists
+alter table energy_readings add column if not exists pf float default 0.95;
+alter table energy_readings add column if not exists frequency float default 50.0;

@@ -2,20 +2,12 @@ const supabase = require('../supabaseClient');
 
 const receiveData = async (req, res) => {
   try {
-    const { voltage, current, power, energy_kWh, cost_rs } = req.body;
+    const { voltage, current, power, energy_kWh, cost_rs, pf, frequency } = req.body;
 
     // Basic validation
     if (voltage === undefined || current === undefined || power === undefined || energy_kWh === undefined || cost_rs === undefined) {
-      return res.status(400).json({ message: 'All sensor data fields are required' });
+      return res.status(400).json({ message: 'All primary sensor data fields are required' });
     }
-
-    const newSensorData = new ESP32Data({
-      voltage,
-      current,
-      power,
-      energy_kWh,
-      cost_rs,
-    });
 
     // Sync to Supabase
     const { error: supabaseError } = await supabase
@@ -25,7 +17,9 @@ const receiveData = async (req, res) => {
         current,
         power,
         energy_kwh: energy_kWh,
-        cost_rs
+        cost_rs,
+        pf: pf || 0.95,        // Default if missing
+        frequency: frequency || 50.0 // Default if missing
       }]);
 
     if (supabaseError) {
@@ -58,12 +52,13 @@ const getLatestData = async (req, res) => {
       throw error;
     }
 
-    // Transform Supabase structure to match expected frontend structure if needed
-    // Frontend expects: { power, voltage, current, energy_kWh, timestamp (created_at) }
+    // Transform Supabase structure to match expected frontend structure
     const formattedData = {
       ...latestData,
       timestamp: latestData.created_at,
-      energy_kWh: latestData.energy_kwh // remap casing
+      energy_kWh: latestData.energy_kwh, // remap casing
+      pf: latestData.pf,
+      frequency: latestData.frequency
     };
 
     res.status(200).json(formattedData);

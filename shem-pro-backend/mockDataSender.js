@@ -52,7 +52,12 @@ function generateData() {
     state.energy_kWh += (state.power / 1000) * deltaHours;
 
     // Calculate cost
+    // Calculate cost
     state.cost_rs = state.energy_kWh * COST_PER_KWH;
+
+    // Power Factor & Frequency
+    const pf = 0.90 + Math.random() * 0.09; // 0.90 - 0.99
+    const frequency = 49.8 + Math.random() * 0.4; // 49.8 - 50.2 Hz
 
     state.lastUpdate = now;
 
@@ -61,7 +66,9 @@ function generateData() {
         current: parseFloat(state.current.toFixed(3)),
         power: parseFloat(state.power.toFixed(1)),
         energy_kWh: parseFloat(state.energy_kWh.toFixed(4)),
-        cost_rs: parseFloat(state.cost_rs.toFixed(2))
+        cost_rs: parseFloat(state.cost_rs.toFixed(2)),
+        pf: parseFloat(pf.toFixed(2)),
+        frequency: parseFloat(frequency.toFixed(2))
     };
 }
 
@@ -75,6 +82,8 @@ async function sendData() {
     console.log(`   Power:    ${data.power} W`);
     console.log(`   Energy:   ${data.energy_kWh} kWh`);
     console.log(`   Cost:     ₹${data.cost_rs}`);
+    console.log(`   PF:       ${data.pf}`);
+    console.log(`   Freq:     ${data.frequency} Hz`);
 
     try {
         const response = await axios.post(BACKEND_URL, data);

@@ -12,7 +12,7 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <EmonLib.h>
-#include <esp_task_wdt.h>  // Watchdog Timer
+#include <esp_task_wdt.h>  // Watchdog Tiwebsite themer
 
 // ================== WIFI & BACKEND ==================
 char ssid[] = "GITAM-5GHz";
@@ -246,6 +246,11 @@ void processAndSendData() {
     Serial.println("Blynk: Not connected, skipping...");
   }
 
+  // ---------- EMON & PF ----------
+  // EmonLib calculates PF during calcVI
+  float pf = emon.powerFactor;
+  float frequency = 50.0; // Hardcoded grid frequency (EmonLib doesn't measure freq well)
+
   // ---------- BACKEND ----------
   if (wifiConnected) {
     HTTPClient http;
@@ -259,6 +264,8 @@ void processAndSendData() {
     payload["power"] = Power;
     payload["energy_kWh"] = total_kWh;
     payload["cost_rs"] = total_cost;
+    payload["pf"] = pf;
+    payload["frequency"] = frequency;
 
     Serial.print("Sending to: ");
     Serial.println(serverUrl);
